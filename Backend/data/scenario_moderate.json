@@ -1,0 +1,21 @@
+{
+  "scenario": "moderate_traffic",
+  "description": "Mid-sized international airport with overlapping morning and afternoon banks. Gate size constraints apply. Expected chromatic number: 3.",
+  "gates": [
+    { "id": "G1", "size": "large",  "compatible_aircraft": ["small", "medium", "large"] },
+    { "id": "G2", "size": "large",  "compatible_aircraft": ["small", "medium", "large"] },
+    { "id": "G3", "size": "medium", "compatible_aircraft": ["small", "medium"] },
+    { "id": "G4", "size": "medium", "compatible_aircraft": ["small", "medium"] },
+    { "id": "G5", "size": "small",  "compatible_aircraft": ["small"] }
+  ],
+  "flights": [
+    { "id": "F1", "airline": "Turkish Airlines", "arrival": "06:00", "departure": "08:00",  "aircraft_size": "large",  "active": true },
+    { "id": "F2", "airline": "Pegasus",          "arrival": "06:30", "departure": "09:00",  "aircraft_size": "medium", "active": true },
+    { "id": "F3", "airline": "SunExpress",       "arrival": "07:30", "departure": "10:00",  "aircraft_size": "small",  "active": true },
+    { "id": "F4", "airline": "Turkish Airlines", "arrival": "09:30", "departure": "12:00",  "aircraft_size": "large",  "active": true },
+    { "id": "F5", "airline": "AnadoluJet",       "arrival": "10:00", "departure": "12:30",  "aircraft_size": "medium", "active": true },
+    { "id": "F6", "airline": "Pegasus",          "arrival": "11:30", "departure": "13:30",  "aircraft_size": "medium", "active": true },
+    { "id": "F7", "airline": "SunExpress",       "arrival": "13:00", "departure": "15:30",  "aircraft_size": "small",  "active": true },
+    { "id": "F8", "airline": "Turkish Airlines", "arrival": "14:00", "departure": "16:30",  "aircraft_size": "large",  "active": true }
+  ]
+}

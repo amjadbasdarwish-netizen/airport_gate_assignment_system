@@ -1,0 +1,16 @@
+{
+  "scenario": "light_traffic",
+  "description": "Small regional airport with low flight volume and minimal gate conflicts. Expected chromatic number: 2.",
+  "gates": [
+    { "id": "G1", "size": "small",  "compatible_aircraft": ["small"] },
+    { "id": "G2", "size": "medium", "compatible_aircraft": ["small", "medium"] },
+    { "id": "G3", "size": "medium", "compatible_aircraft": ["small", "medium"] }
+  ],
+  "flights": [
+    { "id": "F1", "airline": "AnadoluJet", "arrival": "06:00", "departure": "07:30", "aircraft_size": "small",  "active": true },
+    { "id": "F2", "airline": "Pegasus",    "arrival": "07:00", "departure": "09:00", "aircraft_size": "medium", "active": true },
+    { "id": "F3", "airline": "SunExpress", "arrival": "09:30", "departure": "11:00", "aircraft_size": "small",  "active": true },
+    { "id": "F4", "airline": "AnadoluJet", "arrival": "10:00", "departure": "12:30", "aircraft_size": "medium", "active": true },
+    { "id": "F5", "airline": "Pegasus",    "arrival": "13:00", "departure": "15:00", "aircraft_size": "small",  "active": true }
+  ]
+}

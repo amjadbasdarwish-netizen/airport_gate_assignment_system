@@ -1,0 +1,28 @@
+{
+  "scenario": "peak_traffic",
+  "description": "Major hub airport during morning peak operations. Dense overlaps across all flight banks, strict gate size constraints for wide-body aircraft. Expected chromatic number: 5.",
+  "gates": [
+    { "id": "G1",  "size": "large",  "compatible_aircraft": ["small", "medium", "large"] },
+    { "id": "G2",  "size": "large",  "compatible_aircraft": ["small", "medium", "large"] },
+    { "id": "G3",  "size": "large",  "compatible_aircraft": ["small", "medium", "large"] },
+    { "id": "G4",  "size": "medium", "compatible_aircraft": ["small", "medium"] },
+    { "id": "G5",  "size": "medium", "compatible_aircraft": ["small", "medium"] },
+    { "id": "G6",  "size": "medium", "compatible_aircraft": ["small", "medium"] },
+    { "id": "G7",  "size": "small",  "compatible_aircraft": ["small"] },
+    { "id": "G8",  "size": "small",  "compatible_aircraft": ["small"] }
+  ],
+  "flights": [
+    { "id": "F1",  "airline": "Turkish Airlines", "arrival": "05:30", "departure": "08:00",  "aircraft_size": "large",  "active": true },
+    { "id": "F2",  "airline": "Pegasus",          "arrival": "06:00", "departure": "08:30",  "aircraft_size": "medium", "active": true },
+    { "id": "F3",  "airline": "SunExpress",       "arrival": "06:00", "departure": "09:00",  "aircraft_size": "small",  "active": true },
+    { "id": "F4",  "airline": "AnadoluJet",       "arrival": "06:30", "departure": "09:30",  "aircraft_size": "medium", "active": true },
+    { "id": "F5",  "airline": "Turkish Airlines", "arrival": "07:00", "departure": "10:00",  "aircraft_size": "large",  "active": true },
+    { "id": "F6",  "airline": "Pegasus",          "arrival": "07:30", "departure": "10:30",  "aircraft_size": "small",  "active": true },
+    { "id": "F7",  "airline": "SunExpress",       "arrival": "08:00", "departure": "11:00",  "aircraft_size": "medium", "active": true },
+    { "id": "F8",  "airline": "AnadoluJet",       "arrival": "08:30", "departure": "11:30",  "aircraft_size": "small",  "active": true },
+    { "id": "F9",  "airline": "Turkish Airlines", "arrival": "09:00", "departure": "12:00",  "aircraft_size": "large",  "active": true },
+    { "id": "F10", "airline": "Pegasus",          "arrival": "09:30", "departure": "12:30",  "aircraft_size": "medium", "active": true },
+    { "id": "F11", "airline": "SunExpress",       "arrival": "10:00", "departure": "13:00",  "aircraft_size": "small",  "active": true },
+    { "id": "F12", "airline": "AnadoluJet",       "arrival": "10:30", "departure": "13:30",  "aircraft_size": "medium", "active": true }
+  ]
+}
