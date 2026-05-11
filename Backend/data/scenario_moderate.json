@@ -5,12 +5,12 @@
     {
       "id": "G1",
       "size": "medium",
-      "compatible_aircraft": ["small", "medium"]
+      "compatible_aircraft": ["medium"]
     },
     {
       "id": "G2",
       "size": "medium",
-      "compatible_aircraft": ["small", "medium"]
+      "compatible_aircraft": ["medium"]
     },
     { "id": "G3", "size": "small", "compatible_aircraft": ["small"] },
     { "id": "G4", "size": "large", "compatible_aircraft": ["large"] },
