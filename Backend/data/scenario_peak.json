@@ -3,8 +3,8 @@
   "description": "Extreme Stress: 8 flights with heavy overlaps and tight size constraints. Removing even one gate will cause a cascade of unassigned flights.",
   "gates": [
     { "id": "G1", "size": "large", "compatible_aircraft": ["large"] },
-    { "id": "G2", "size": "medium", "compatible_aircraft": ["small", "medium"] },
-    { "id": "G3", "size": "medium", "compatible_aircraft": ["small", "medium"] },
+    { "id": "G2", "size": "medium", "compatible_aircraft": ["medium"] },
+    { "id": "G3", "size": "medium", "compatible_aircraft": ["medium"] },
     { "id": "G4", "size": "small", "compatible_aircraft": ["small"] }
   ],
   "flights": [
