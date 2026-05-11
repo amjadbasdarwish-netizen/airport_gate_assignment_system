@@ -104,13 +104,12 @@ export default function App() {
                   <span className={`font-medium ${chromaticNumber < theoreticalMin ? 'text-red-500' : 'text-emerald-600'}`}>
                     {chromaticNumber}
                   </span>
+                  {chromaticNumber < theoreticalMin && (
+                    <span className="text-red-500 text-[10px] font-bold italic">
+                      ⚠ Not all flights are assigned
+                    </span>
+                  )}
                 </div>
-                {/* Error Message Logic */}
-                {chromaticNumber < theoreticalMin && (
-                  <span className="text-red-500 text-[10px] font-bold italic">
-                    ⚠ Not all flights are assigned
-                  </span>
-                )}
               </div>
             </div>
           </div>
