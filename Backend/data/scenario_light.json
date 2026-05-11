@@ -1,16 +1,13 @@
-{
+﻿{
   "scenario": "light_traffic",
-  "description": "Small regional airport with low flight volume and minimal gate conflicts. Expected chromatic number: 2.",
+  "description": "Timing Bottleneck: 3 small flights overlap, but only 2 gates exist. Adding a 3rd gate is required to solve.",
   "gates": [
-    { "id": "G1", "size": "small",  "compatible_aircraft": ["small"] },
-    { "id": "G2", "size": "medium", "compatible_aircraft": ["small", "medium"] },
-    { "id": "G3", "size": "medium", "compatible_aircraft": ["small", "medium"] }
+    { "id": "G1", "size": "small", "compatible_aircraft": ["small"] },
+    { "id": "G2", "size": "medium", "compatible_aircraft": ["medium"] }
   ],
   "flights": [
-    { "id": "F1", "airline": "AnadoluJet", "arrival": "06:00", "departure": "07:30", "aircraft_size": "small",  "active": true },
-    { "id": "F2", "airline": "Pegasus",    "arrival": "07:00", "departure": "09:00", "aircraft_size": "medium", "active": true },
-    { "id": "F3", "airline": "SunExpress", "arrival": "09:30", "departure": "11:00", "aircraft_size": "small",  "active": true },
-    { "id": "F4", "airline": "AnadoluJet", "arrival": "10:00", "departure": "12:30", "aircraft_size": "medium", "active": true },
-    { "id": "F5", "airline": "Pegasus",    "arrival": "13:00", "departure": "15:00", "aircraft_size": "small",  "active": true }
+    { "id": "F1", "airline": "AnadoluJet", "arrival": "08:00", "departure": "10:00", "aircraft_size": "small", "active": true },
+    { "id": "F2", "airline": "Pegasus", "arrival": "08:30", "departure": "10:30", "aircraft_size": "small", "active": true },
+    { "id": "F3", "airline": "SunExpress", "arrival": "09:00", "departure": "11:00", "aircraft_size": "small", "active": true }
   ]
 }

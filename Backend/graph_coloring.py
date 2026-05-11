@@ -1,15 +1,33 @@
 import networkx as nx
-from utils import is_timing_conflict
+from utils import is_structural_conflict, is_timing_conflict
 
-def get_conflict_graph(flights):
-    """Builds a NetworkX graph where edges represent timing conflicts[cite: 2]."""
+
+def get_conflict_graph(flights, gates):
+    """
+    Builds a NetworkX graph where edges represent either:
+    1. Timing conflicts (overlapping schedules)
+    2. Structural conflicts (zero shared compatible gates)
+    """
     G = nx.Graph()
     for i, f1 in enumerate(flights):
-        G.add_node(f1['id'])
-        for f2 in flights[i+1:]:
-            if is_timing_conflict(f1, f2):
-                G.add_edge(f1['id'], f2['id'])
+        G.add_node(f1["id"], aircraft_size=f1["aircraft_size"])
+        for f2 in flights[i + 1 :]:
+            timing = is_timing_conflict(f1, f2)
+            structural = is_structural_conflict(f1, f2, gates)
+
+            if timing or structural:
+                # Store the reason for the conflict in the edge data
+                G.add_edge(
+                    f1["id"],
+                    f2["id"],
+                    conflict_type="both"
+                    if (timing and structural)
+                    else "timing"
+                    if timing
+                    else "structural",
+                )
     return G
+
 
 def run_welsh_powell(G):
     """
