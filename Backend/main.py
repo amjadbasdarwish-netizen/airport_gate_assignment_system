@@ -96,11 +96,12 @@ async def add_gate(size: str):
     new_id = f"G{next_num}"
 
     # Compatibility logic (Updated for specialized Large gates)
-    comp = ["small"]
-    if size == "medium":
-        comp = ["medium"]
     if size == "large":
         comp = ["large"]
+    elif size == "medium":
+        comp = ["medium", "small"]  # or just ["medium"]
+    else:
+        comp = ["small"]
 
     new_gate = {"id": new_id, "size": size, "compatible_aircraft": comp}
     state["gates"].append(new_gate)
