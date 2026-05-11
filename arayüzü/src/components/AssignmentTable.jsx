@@ -1,19 +1,24 @@
-
+import React from "react";
 import { useStore } from "../store/useStore";
 
 const AssignmentTable = () => {
-  const { flights, assignments, gateColors } = useStore();
+  const { flights, assignments, gates, gateColors } = useStore();
 
   // Show all active flights, even if they don't have an assignment
   const activeFlights = flights
     .filter((f) => f.active)
-    .map((f) => ({
-      id: f.id,
-      gate_id: assignments[f.id], // Might be undefined
-      gate_size: assignments[f.aircraft_size],
-      arrival: f.arrival,
-      departure: f.departure,
-    }));
+    .map((f) => {
+      const gateId = assignments[f.id];
+      const gateObj = gates.find((g) => g.id === gateId);
+      return {
+        id: f.id,
+        gate_id: gateId,
+        gate_size: gateObj ? gateObj.size : "",
+        aircraft_size: f.aircraft_size,
+        arrival: f.arrival,
+        departure: f.departure,
+      };
+    });
 
   if (activeFlights.length === 0) {
     return (
@@ -36,7 +41,14 @@ const AssignmentTable = () => {
         <tbody className="divide-y divide-slate-100">
           {activeFlights.map((a) => (
             <tr key={a.id} className="hover:bg-slate-50/50 transition-colors">
-              <td className="p-4 font-bold text-slate-700">{a.id}</td>
+              <td className="p-4">
+                <div className="flex flex-col">
+                  <span className="font-bold text-slate-700">{a.id}</span>
+                  <span className="text-[9px] text-slate-400 uppercase font-bold tracking-tight">
+                    {a.aircraft_size}
+                  </span>
+                </div>
+              </td>
               <td className="p-4">
                 {a.gate_id ? (
                   <span
@@ -45,7 +57,10 @@ const AssignmentTable = () => {
                       backgroundColor: gateColors[a.gate_id] || "#cbd5e1",
                     }}
                   >
-                    {a.gate_id} {a.gate_size}
+                    {a.gate_id}{" "}
+                    <span className="text-white/70 font-normal">
+                      ({a.gate_size})
+                    </span>
                   </span>
                 ) : (
                   <span className="px-3 py-1 rounded-full bg-rose-100 text-rose-600 text-[10px] font-black uppercase tracking-wider border border-rose-200">
