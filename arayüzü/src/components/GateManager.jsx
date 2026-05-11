@@ -18,7 +18,7 @@ const GateManager = () => {
             className="w-full bg-white border border-slate-200 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all shadow-sm"
           >
             <option value="small">Small (Light Jets only)</option>
-            <option value="medium">Medium (Narrowbody & Small)</option>
+            <option value="medium">Medium (Narrowbody )</option>
             <option value="large">Large (Widebody ONLY)</option>
           </select>{" "}
         </div>
