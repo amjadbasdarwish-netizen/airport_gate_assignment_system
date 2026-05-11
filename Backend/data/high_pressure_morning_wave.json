@@ -38,6 +38,12 @@
       "size": "small",
       "terminal": "C",
       "compatible_aircraft": ["small"]
+    },
+    {
+      "id": "G7",
+      "size": "medium",
+      "terminal": "C",
+      "compatible_aircraft": ["medium"]
     }
   ],
   "flights": [

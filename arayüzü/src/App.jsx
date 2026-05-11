@@ -73,7 +73,7 @@ export default function App() {
             </button>
             <button
               onClick={() => loadScenario("scenario_peak")}
-              className="px-4 py-1.5 bg-indigo-600 high_pressure_morning_wavetext-white rounded-lg text-sm font-semibold hover:bg-indigo-700 transition-all shadow-sm"
+              className="px-4 py-1.5 bg-indigo-600 text-white rounded-lg text-sm font-semibold hover:bg-indigo-700 transition-all shadow-sm"
             >
               Peak
             </button>
@@ -99,7 +99,12 @@ export default function App() {
                 <span className="text-slate-400 text-[10px]">
                   Gates Assigned
                 </span>
-                <span className="text-emerald-600">{chromaticNumber}</span>
+                <div className="flex flex-col">
+                  <span className="text-slate-400 text-[10px]">Gates Assigned</span>
+                  <span className={`font-medium ${chromaticNumber < theoreticalMin ? 'text-red-500' : 'text-emerald-600'}`}>
+                    {chromaticNumber}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
