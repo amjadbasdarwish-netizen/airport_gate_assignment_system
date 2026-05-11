@@ -77,6 +77,12 @@ export default function App() {
             >
               Peak
             </button>
+            <button
+              onClick={() => loadScenario("high_pressure_morning_wave")}
+              className="px-4 py-1.5 bg-indigo-600 text-white rounded-lg text-sm font-semibold hover:bg-indigo-700 transition-all shadow-sm"
+            >
+              high pressure
+            </button>
 
             <div className="h-6 w-px bg-slate-200 mx-2"></div>
 
