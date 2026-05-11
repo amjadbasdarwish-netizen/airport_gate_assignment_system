@@ -10,6 +10,7 @@ const AssignmentTable = () => {
     .map((f) => ({
       id: f.id,
       gate_id: assignments[f.id], // Might be undefined
+      gate_size: assignments[f.gate_size],
       arrival: f.arrival,
       departure: f.departure,
     }));
