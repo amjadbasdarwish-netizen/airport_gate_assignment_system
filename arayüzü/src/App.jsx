@@ -96,7 +96,6 @@ export default function App() {
                 <span className="text-indigo-600">{theoreticalMin}</span>
               </div>
               <div className="flex flex-col">
-
                 <div className="flex flex-col">
                   <span className="text-slate-400 text-[10px]">Gates Assigned</span>
                   <span className={`font-medium ${chromaticNumber < theoreticalMin ? 'text-red-500' : 'text-emerald-600'}`}>
