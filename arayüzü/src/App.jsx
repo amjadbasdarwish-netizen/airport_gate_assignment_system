@@ -15,9 +15,19 @@ export default function App() {
     toggleFlight,
     assignments,
   } = useStore();
+
+  // Local state for UI navigation and active scenario styling
   const [activeTab, setActiveTab] = useState("gantt");
+  const [activeScenario, setActiveScenario] = useState("scenario_light");
 
   const activeCount = flights.filter((f) => f.active).length;
+
+  const scenarios = [
+    { id: "scenario_light", label: "Light" },
+    { id: "scenario_moderate", label: "Moderate" },
+    { id: "scenario_peak", label: "Peak" },
+    { id: "high_pressure_morning_wave", label: "High Pressure" },
+  ];
 
   const tabs = [
     {
@@ -47,6 +57,11 @@ export default function App() {
     },
   ];
 
+  const handleScenarioChange = (id) => {
+    setActiveScenario(id);
+    loadScenario(id);
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
       {/* Top Header & Scenario Controls */}
@@ -59,30 +74,19 @@ export default function App() {
           </div>
 
           <div className="flex flex-wrap gap-2 items-center">
-            <button
-              onClick={() => loadScenario("scenario_light")}
-              className="px-4 py-1.5 bg-white border border-slate-200 rounded-lg text-sm font-semibold text-slate-600 hover:bg-slate-50 transition-all"
-            >
-              Light
-            </button>
-            <button
-              onClick={() => loadScenario("scenario_moderate")}
-              className="px-4 py-1.5 bg-white border border-slate-200 rounded-lg text-sm font-semibold text-slate-600 hover:bg-slate-50 transition-all"
-            >
-              Moderate
-            </button>
-            <button
-              onClick={() => loadScenario("scenario_peak")}
-              className="px-4 py-1.5 bg-indigo-600 text-white rounded-lg text-sm font-semibold hover:bg-indigo-700 transition-all shadow-sm"
-            >
-              Peak
-            </button>
-            <button
-              onClick={() => loadScenario("high_pressure_morning_wave")}
-              className="px-4 py-1.5 bg-indigo-600 text-white rounded-lg text-sm font-semibold hover:bg-indigo-700 transition-all shadow-sm"
-            >
-              high pressure
-            </button>
+            {scenarios.map((s) => (
+              <button
+                key={s.id}
+                onClick={() => handleScenarioChange(s.id)}
+                className={`px-4 py-1.5 rounded-lg text-sm font-semibold transition-all shadow-sm border ${
+                  activeScenario === s.id
+                    ? "bg-indigo-600 text-white border-indigo-600"
+                    : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50"
+                }`}
+              >
+                {s.label}
+              </button>
+            ))}
 
             <div className="h-6 w-px bg-slate-200 mx-2"></div>
 
@@ -97,8 +101,16 @@ export default function App() {
               </div>
               <div className="flex flex-col">
                 <div className="flex flex-col">
-                  <span className="text-slate-400 text-[10px]">Gates Assigned</span>
-                  <span className={`font-medium ${chromaticNumber < theoreticalMin ? 'text-red-500' : 'text-emerald-600'}`}>
+                  <span className="text-slate-400 text-[10px]">
+                    Gates Assigned
+                  </span>
+                  <span
+                    className={`font-medium ${
+                      chromaticNumber < theoreticalMin
+                        ? "text-red-500"
+                        : "text-emerald-600"
+                    }`}
+                  >
                     {chromaticNumber}
                   </span>
                   {chromaticNumber < theoreticalMin && (
@@ -226,7 +238,13 @@ export default function App() {
                 >
                   <span
                     className={`w-1.5 h-1.5 rounded-full
-                    ${f.active ? (isUnassigned ? "bg-rose-500 animate-pulse" : "bg-indigo-400") : "bg-slate-600"}`}
+                    ${
+                      f.active
+                        ? isUnassigned
+                          ? "bg-rose-500 animate-pulse"
+                          : "bg-indigo-400"
+                        : "bg-slate-600"
+                    }`}
                   ></span>
                   {f.id} <br />
                   {f.aircraft_size}

@@ -99,7 +99,7 @@ async def add_gate(size: str):
     if size == "large":
         comp = ["large"]
     elif size == "medium":
-        comp = ["medium", "small"]  # or just ["medium"]
+        comp = ["medium"]  # or just ["medium"]
     else:
         comp = ["small"]
 
