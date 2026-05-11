@@ -44,7 +44,7 @@ const AssignmentTable = () => {
                       backgroundColor: gateColors[a.gate_id] || "#cbd5e1",
                     }}
                   >
-                    {a.gate_id}
+                    {a.gate_id} {f.aircraft_size}
                   </span>
                 ) : (
                   <span className="px-3 py-1 rounded-full bg-rose-100 text-rose-600 text-[10px] font-black uppercase tracking-wider border border-rose-200">
